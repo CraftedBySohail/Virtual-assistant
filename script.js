@@ -7,8 +7,8 @@ function speak(text) {
     let text_speak = new SpeechSynthesisUtterance(text);
     text_speak.rate = 1;
     text_speak.pitch = 1;
-    text_speak.volume = 1;
-    text_speak.lang = "en-GB";
+    text_speak.volume = 2;
+    text_speak.lang = "hi-GB";
     window.speechSynthesis.speak(text_speak);
 }
 
@@ -68,7 +68,7 @@ function takeCommand(message) {
         hour = hour % 12 || 12;
         speak(`The time is ${hour}:${minutes < 10 ? "0" + minutes : minutes} ${ampm}.`);
     }
-    else if (message.includes("who are you")) {
+    else if (message.includes("who are you")|| message.includes("tell me about yourself")) {
         speak("I am a virtual assistant.");
     } else if (message.includes("open youtube")) {
         speak("Opening YouTube.");
@@ -90,8 +90,10 @@ function takeCommand(message) {
         return;
     }
     
-    else{
+    else if(message.includes("search ")){
         speak("searching.      This is what i found");
         window.open(`https://www.google.com/search?q=${message}`);
+    }else{
+        speak("Sorry i Didn't get it");
     }
 }
