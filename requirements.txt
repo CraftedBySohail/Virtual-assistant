@@ -1,0 +1,7 @@
+firebase-admin
+python-dotenv
+requests
+customtkinter
+Pillow
+subprocess32
+
